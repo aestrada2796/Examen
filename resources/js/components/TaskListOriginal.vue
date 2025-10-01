@@ -31,7 +31,7 @@
 import TaskItem from './TaskItem.vue'
 
 // Props
-const props = defineProps({
+defineProps({
   tasks: {
     type: Array,
     default: () => []

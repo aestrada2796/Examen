@@ -8,9 +8,9 @@
         <div class="col-md-6">
           <form @submit.prevent="handleCreateKeyword">
             <div class="input-group mb-3">
-              <input 
-                type="text" 
-                class="form-control" 
+              <input
+                type="text"
+                class="form-control"
                 v-model="newKeyword.name"
                 placeholder="Enter keyword name"
                 required
@@ -24,15 +24,15 @@
         <div class="col-md-6">
           <div v-if="keywords.length > 0">
             <div class="d-flex flex-wrap gap-1">
-              <span 
-                v-for="keyword in keywords" 
+              <span
+                v-for="keyword in keywords"
                 :key="keyword.id"
                 class="badge bg-secondary d-flex align-items-center gap-1"
               >
                 {{ keyword.name }}
-                <button 
-                  @click="handleDeleteKeyword(keyword.id)" 
-                  class="btn-close btn-close-white" 
+                <button
+                  @click="handleDeleteKeyword(keyword.id)"
+                  class="btn-close btn-close-white"
                   style="font-size: 0.6em;"
                   :disabled="loading"
                 ></button>
@@ -51,8 +51,7 @@
 <script setup>
 import { ref } from 'vue'
 
-// Props
-const props = defineProps({
+defineProps({
   keywords: {
     type: Array,
     default: () => []
