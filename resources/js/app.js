@@ -1,9 +1,8 @@
 import './bootstrap';
+import {createApp} from 'vue'
+import TaskList from './components/TaskList.vue'
 
 console.log('JavaScript is loading...')
-
-import { createApp } from 'vue'
-import TaskList from './components/TaskList.vue'
 
 console.log('Vue components imported')
 

@@ -23,11 +23,11 @@ class TaskController extends Controller
     public function store(TaskRequest $request): JsonResponse
     {
         $task = Task::create($request->validated());
-        
+
         if ($request->has('keyword_ids')) {
             $task->keywords()->attach($request->keyword_ids);
         }
-        
+
         $task->load('keywords');
         return response()->json($task, 201);
     }
@@ -39,11 +39,11 @@ class TaskController extends Controller
     {
         $task = Task::findOrFail($id);
         $task->update($request->validated());
-        
+
         if ($request->has('keyword_ids')) {
             $task->keywords()->sync($request->keyword_ids);
         }
-        
+
         $task->load('keywords');
         return response()->json($task);
     }
@@ -55,7 +55,7 @@ class TaskController extends Controller
     {
         $task = Task::findOrFail($id);
         $task->delete();
-        
+
         return response()->json(['message' => 'Task deleted successfully']);
     }
 
@@ -67,7 +67,7 @@ class TaskController extends Controller
         $task = Task::findOrFail($id);
         $task->is_done = !$task->is_done;
         $task->save();
-        
+
         $task->load('keywords');
         return response()->json($task);
     }

@@ -37,7 +37,7 @@ class KeywordController extends Controller
     {
         $keyword = Keyword::findOrFail($id);
         $keyword->delete();
-        
+
         return response()->json(['message' => 'Keyword deleted successfully']);
     }
 }
