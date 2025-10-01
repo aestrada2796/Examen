@@ -1,14 +1,13 @@
 import './bootstrap';
 import {createApp} from 'vue'
-import TaskList from './components/TaskList.vue'
+import TaskManager from './components/TaskManager.vue'
 
 console.log('JavaScript is loading...')
-
-console.log('Vue components imported')
+console.log('TaskManager component:', TaskManager)
 
 const app = createApp({})
 
-app.component('task-list', TaskList)
+app.component('task-manager', TaskManager)
 
 console.log('Component registered')
 
@@ -17,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded')
     const appElement = document.getElementById('app')
     if (appElement) {
+        console.log('Mounting Vue app...')
         app.mount('#app')
         console.log('Vue app mounted successfully')
     } else {
